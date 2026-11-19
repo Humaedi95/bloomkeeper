@@ -1,10 +1,30 @@
-// Sound only: every note is synthesised with WebAudio, so the game ships no
-// audio files and makes no network request. Sounds start only after the
+// Sound effects are synthesised with WebAudio, and the background music is
+// one looping theme track shipped with the game
+// (game/assets/bloomkeeper-theme.mp3, an original chiptune composed for it),
+// so the game still makes no network request. Sounds start only after the
 // player presses a key or clicks, which is when browsers allow audio.
 
 export function createAudio() {
   let context = null;
   let muted = false;
+  let music = null;
+  let musicStarted = false;
+
+  function ensureMusic() {
+    if (music === null) {
+      try {
+        music = new Audio(new URL('../assets/bloomkeeper-theme.mp3', import.meta.url).href);
+        music.loop = true;
+        music.volume = 0.45;
+        music.muted = muted;
+        music.style.display = 'none';
+        document.body.appendChild(music);
+      } catch {
+        music = null;
+      }
+    }
+    return music;
+  }
 
   function ensure() {
     if (context === null) {
@@ -54,7 +74,15 @@ export function createAudio() {
 
   return {
     unlock() { ensure(); },
-    toggleMute() { muted = !muted; return muted; },
+    startMusic() {
+      if (musicStarted) return;
+      const track = ensureMusic();
+      if (track === null) return;
+      musicStarted = true;
+      const play = track.play();
+      if (play && typeof play.catch === 'function') play.catch(() => { musicStarted = false; });
+    },
+    toggleMute() { muted = !muted; if (music !== null) music.muted = muted; return muted; },
     isMuted() { return muted; },
     collect() { tone(880, 0.12, 'sine', 0.12); tone(1320, 0.1, 'sine', 0.08, 0.05); },
     bloom() { tone(523, 0.14, 'triangle', 0.14); tone(659, 0.14, 'triangle', 0.14, 0.08); tone(784, 0.2, 'triangle', 0.14, 0.16); },

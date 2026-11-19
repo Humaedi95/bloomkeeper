@@ -72,6 +72,7 @@ function runGame() {
     accumulator = 0;
     screen = SCREEN_PLAY;
     audio.unlock();
+    audio.startMusic();
     announce('Playing. Bloom all 12 flowers before dusk.');
   }
 

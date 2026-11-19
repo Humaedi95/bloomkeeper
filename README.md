@@ -12,7 +12,7 @@ Bloomkeeper is a bright garden arcade game: fly Pip the bee, collect golden poll
 node serve.ts
 ```
 
-Then open http://localhost:8080 in a desktop browser. Move with WASD or the arrow keys, hold the mouse to steer, click or press Shift to dash, P to pause, M to mute. Press Space or click to start, and again to play again after the game ends.
+Then open http://localhost:8080 in a desktop browser. Move with WASD or the arrow keys, hold the mouse to steer, click or press Shift to dash, P to pause, M to mute. Press Space or click to start, and again to play again after the game ends. An original Bloomkeeper theme loops in the background once the game starts.
 
 ---
 
