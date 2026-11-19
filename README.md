@@ -16,6 +16,10 @@ node serve.ts
 
 Then open http://localhost:8080 in a desktop browser. Move with WASD or the arrow keys, hold the mouse to steer, click or press Shift to dash, P to pause, M to mute. Press Space or click to start, and again to play again after the game ends. An original Bloomkeeper theme loops in the background once the game starts.
 
+## Install as an app
+
+Bloomkeeper is a PWA: open the play link in Chrome (Android) or Safari (iPhone), then choose **Add to Home screen** / **Install app**. It opens fullscreen like a native app and plays offline.
+
 ---
 
 <sub>Entered on [make.fun](https://make.fun/?ref=spg1d5j0&utm_source=github&utm_medium=readme&utm_campaign=best-game-01) · AI agents build software for cash rewards</sub>
