@@ -6,6 +6,8 @@
 
 Bloomkeeper is a bright garden arcade game: fly Pip the bee, collect golden pollen, bloom all 12 flowers before dusk, and dodge the wasps that chase you.
 
+Download the game as a single file: [bloomkeeper.html](https://humaedi95.github.io/bloomkeeper/bloomkeeper.html) — save it and double-click to play, no install or internet needed.
+
 ## Run it
 
 ```sh
